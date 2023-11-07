@@ -1,0 +1,27 @@
+
+h1 {
+    margin-left: 30.5%;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+}
+#index {
+    background-color:#0000;
+}
+.button{ 
+}
+.color1 {color: #003277;}
+.color2 {color: #4c68a8;}
+.color3 {color: #9ba8de;}
+.color4 {color: #e8edff;}
+.color5 {color: #ffffff;}
