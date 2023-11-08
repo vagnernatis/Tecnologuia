@@ -1,7 +1,129 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-        <title>Cadastro de Usuarios</title>
-    </head>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <title>Cadastre-se</title>
+    <style>
+        .vagner {
+            margin: 20px;
+        }
+        h1 {
+            margin: 18px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastre-se</h1>
+    <div class="vagner">
+        <form id="registrationForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nome</label>
+                    <input type="text" class="form-control" id="inputEmail4" placeholder="Primeiro nome">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for "inputPassword4">Sobrenome</label>
+                    <input type="text" class="form-control" id="inputPassword4" placeholder="Sobrenome">
+                    <span class="error-message" id="lastNameError"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Email</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Seu melhor email">
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Senha</label>
+                <input type="password" class="form-control" id="inputAddress2" placeholder="Senha">
+                <span class="error-message" id="passwordError"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">Celular</label>
+                    <input type="tel" class="form-control" id="inputCity" placeholder="(67) 0000-000">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputEstado">Estado</label>
+                    <select id="inputEstado" class="form-control">
+                        <option selected>Selecionar Estado</option>
+                        <option>MT</option>
+                        <option>MS</option>
+                        <option>GO</option>
+                        <option>BA</option>
+                    </select>
+                    <span class="error-message" id="stateError"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputCEP">CEP</label>
+                    <input type="text" class="form-control" id="inputCEP">
+                    <span class="error-message" id="cepError"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary" id="cadastrarButton">Cadastrar</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById("inputEmail4").value;
+            const lastName = document.getElementById("inputPassword4").value;
+            const email = document.getElementById("inputAddress").value;
+            const password = document.getElementById("inputAddress2").value;
+
+            const nameError = document.getElementById("nameError");
+            const lastNameError = document.getElementById("lastNameError");
+            const emailError = document.getElementById("emailError");
+            const passwordError = document.getElementById("passwordError");
+
+            // Reset error messages
+            nameError.textContent = "";
+            lastNameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+
+            let valid = true;
+
+            if (!firstName) {
+                nameError.textContent = "Campo obrigatório";
+                valid = false;
+            }
+
+            if (!lastName) {
+                lastNameError.textContent = "Campo obrigatório";
+                valid = false;
+            }
+
+            if (!email) {
+                emailError.textContent = "Campo obrigatório";
+                valid = false;
+            }
+
+            if (!password) {
+                passwordError.textContent = "Campo obrigatório";
+                valid = false;
+            }
+
+            if (valid) {
+                alert("Usuário cadastrado");
+                // Reset the form after successful submission
+                form.reset();
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
 </html>
