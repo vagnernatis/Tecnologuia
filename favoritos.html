@@ -3,7 +3,6 @@
 <head>
     <title>Adicionar Favoritos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         .favorito {
             color: #aaa;
@@ -22,12 +21,19 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Início</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Linguagens</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Linguagens
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Python</a>
+                        <a class="dropdown-item" href="#">C#</a>
+                        <a class="dropdown-item" href="#">Java</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Favoritos</a>
@@ -39,12 +45,9 @@
         </div>
     </nav>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-start">
         <div>
-    <div class="container">
+    <div class="container text-left">
         <h1 class="mt-4">Favoritos</h1>
         <ul id="listaFavoritos" class="list-group mt-2">
             <li class="list-group-item"><span class="favorito">&#9734;</span> Python</li>
@@ -56,16 +59,12 @@
      
 </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
-        var favoritos = document.getElementsByClassName('favorito');
-        for (var i = 0; i < favoritos.length; i++) {
-            favoritos[i].addEventListener('click', function() {
-                this.classList.toggle('favoritado');
-                
-            });
-        }
+        $('#listaFavoritos').on('click', '.favorito', function() {
+            $(this).toggleClass('favoritado');
+        });
     </script>
 </body>
 </html>
